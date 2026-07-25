@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<!--
+ * @copyright 2026 S.E.N.O. All rights Reserved.
+ * @file MusicSync Web Application
+ * @description Unauthorized copying, modification, or distribution of this file is strictly prohibited.
+-->
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Player Sync System</title>
+    <link rel="stylesheet" href="index Style.css">
+</head>
+
+<body>
+    <div id="main-page-wrapper">
+        <div class="lang-selector-wrapper">
+            <select id="lang-selector" onchange="changeLanguage(this.value)"
+                style="padding: 8px; border-radius: 5px; cursor: pointer;">
+                <option value="en">English</option>
+                <option value="ko">한국어</option>
+                <option value="jp">日本語</option>
+                <option value="ch">中文(简体)</option>
+            </select>
+        </div>
+        <div id="top-section">
+            <div class="master-wrapper">
+                <div class="desktop-layout-wrapper"
+                    style="display: flex; align-items: flex-start; justify-content: center; gap: 20px;">
+                    <div id="guide-box">
+                        <h3 id="lang-guide-title">Instructions</h3>
+                        <p id="lang-guide-1">1. Other buttons will be enabled once [Initial Sync] is finished.</p>
+                        <p id="lang-guide-2">2. Synchronization is automatically adjusted during [Play Together]</p>
+                        <p id="lang-guide-3">3. If minor sync errors occur, press [Additional Sync].</p>
+                        <p id="lang-guide-4">4. After syncing or changing time, videos pause for calibration. Press play
+                            again.</p>
+                        <p id="lang-guide-5">5. Select an instrument in [Select Performance] for a zoomed view.</p>
+                    </div>
+                    <div class="player-and-controls">
+                        <div id="master-container" class="player-wrapper">
+                            <div id="player-0"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="sync-status" style="background-color: #e0e0e0; color: #333; width: 250px;">Sync Normal</div>
+            <div id="follower-container"></div>
+            <div class="controls">
+                <div class="controls-inner" style="position: relative; width: 100%; height: 100%;">
+                    <div id="ad-overlay-mask" class="ad-overlay" style="display: none;">
+                        YouTube advertisement is playing. All buttons will be enabled once all ads are skipped or finished.
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 5px; width: 100%; margin-bottom: 5px;">
+                        <div id="progress-bar-container"
+                            style="flex-grow: 1; height: 8px; background: #ddd; cursor: pointer; border-radius: 4px;">
+                            <div id="progress-bar"
+                                style="width: 0%; height: 100%; background: #2196f3; border-radius: 4px;">
+                                <div id="time-tooltip">0:00</div>
+                            </div>
+                        </div>
+
+                        <div id="time-display"
+                            style="font-size: 11px; color: #555; width: 80px; text-align: right; font-family: monospace; font-weight: bold; ">
+                            0:00 / 0:00
+                        </div>
+                    </div>
+
+                    <div style="display: flex; gap: 15px; align-items: center; justify-content: center;">
+                        <div class="dummy-box"></div>
+                        <button id="lang-btn-init" onclick="initSync()" style="font-size: 15px;">Initial<span
+                                class="mobile-br"><br></span>Sync</button>
+                        <button id="lang-btn-toggle" class="play-btn" onclick="togglePlayback()"
+                            style="font-size: 15px;">[
+                            ▶
+                            ]<span class="mobile-br"><br></span>Play Together</button>
+                        <button id="lang-btn-add" onclick="addSync()" style="font-size: 15px;">Additional<span
+                                class="mobile-br"><br></span>Sync</button>
+
+                        <div class="selector-container">
+                            <select id="videoSelector" onchange="changeView(this.value)"
+                                style="width: 120px; padding: 6px; border-radius: 5px;">
+                                <option id="lang-view-all" value="all">View All Parts</option>
+                            </select>
+                            <div id="lang-single-select"
+                                style="font-size: 14px; color: #555; margin-top: 2px; font-weight: bold;">Select
+                                Performance
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="fullscreen-sticky-wrapper" style="display: none;">
+                    <button id="lang-btn-fullscreen" onclick="toggleLandscape()">⛶ Switch View</button>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://www.youtube.com/iframe_api"></script>
+        <script src="script.min.js"></script>
+
+</body>
+
+</html>
