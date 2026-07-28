@@ -1,4 +1,9 @@
-html,
+html {
+    overflow-y: scroll;
+    width: 100vw;
+    box-sizing: border-box;
+}
+
 body {
     width: 100%;
     margin: 0;
@@ -195,8 +200,8 @@ body {
     padding: 0 15px;
 }
 
-.controls > div:has(#ad-overlay-mask[style*="display: flex"]),
-.controls > div:has(#ad-overlay-mask[style*="display:flex"]) {
+.controls>div:has(#ad-overlay-mask[style*="display: flex"]),
+.controls>div:has(#ad-overlay-mask[style*="display:flex"]) {
     height: 100% !important;
 }
 
