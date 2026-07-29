@@ -301,8 +301,7 @@ body {
     display: flex !important;
     flex-direction: row !important;
     width: 100vw !important;
-    height: 100vh !important;
-    height: var(--vh) !important;
+    height: 100dvh !important;
     padding: 0 !important;
     gap: 10px !important;
 }
