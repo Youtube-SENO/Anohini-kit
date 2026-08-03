@@ -34,12 +34,16 @@ body {
 .lang-selector-wrapper {
     position: fixed;
     top: 20px;
-    right: 20px; /* 화면 우측 기준 위치 (현재 위치 유지) */
+    right: 20px;
+    /* 화면 우측 기준 위치 (현재 위치 유지) */
     z-index: 2000;
     display: flex;
-    align-items: center; /* 상하단 중심 완벽 정렬 */
-    gap: 8px;            /* 🌐 LANG과 스크롤 메뉴 사이의 간격 */
-    background: transparent; /* 배경 필요 시 rgba(255,255,255,0.8) 등으로 조절 가능 */
+    align-items: center;
+    /* 상하단 중심 완벽 정렬 */
+    gap: 8px;
+    /* 🌐 LANG과 스크롤 메뉴 사이의 간격 */
+    background: transparent;
+    /* 배경 필요 시 rgba(255,255,255,0.8) 등으로 조절 가능 */
 }
 
 .lang-selector-wrapper span {
@@ -458,8 +462,8 @@ body {
 
 .landscape-mode .controls .dummy-box {
     width: 100% !important;
-    height: auto !important;         
-    min-height: 36px !important;     
+    height: auto !important;
+    min-height: 36px !important;
     visibility: visible !important;
     font-size: 12px !important;
     padding: 6px 4px !important;
@@ -471,7 +475,7 @@ body {
     box-sizing: border-box;
     text-align: center;
     word-break: keep-all;
-    line-height: 1.3;                
+    line-height: 1.3;
     display: flex !important;
     align-items: center;
     justify-content: center;
@@ -534,32 +538,15 @@ body {
 
 @media (max-width: 768px) {
 
-    html, body {
-        width: 100%;
-        height: 100%;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
+    html {
+        touch-action: pan-x pan-y;
+        overscroll-behavior: none;
+    }
+
+    body {
+        touch-action: pan-x pan-y;
+        overscroll-behavior: none;
         max-width: 100vw;
-    }
-
-    #mobile-viewport-guard {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100dvh;
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
-        background-color: transparent;
-        box-sizing: border-box;
-        z-index: 1;
-    }
-
-    #main-page-wrapper {
-        width: 100%;
-        min-height: 100%;
-        box-sizing: border-box;
     }
 
 
